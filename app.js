@@ -9,6 +9,11 @@ const usersRouter = require('./routes/users');
 //require the api messages router
 const apiMessagesRouter = require('./routes/api/v1/messages');
 
+//require mongoose
+const mongoose = require('mongoose');
+//connect to the database
+mongoose.connect('mongodb://localhost:27017/messages');
+
 const app = express();
 
 // view engine setup
