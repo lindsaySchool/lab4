@@ -1,13 +1,5 @@
-//require mongoose
-const mongoose = require('mongoose');
-//require schema
-const Schema = mongoose.Schema;
-const MessageSchema = new Schema({
-    text: String,
-    user: String,
-    added: Date
-});
-const Message = mongoose.model('Message', MessageSchema);
+//import the model /model/messages.js
+const Message = require('../../../models/messages');
 
 //functie
 const getAll = (req, res) => {
@@ -26,7 +18,7 @@ const getAll = (req, res) => {
     });
 }
 
-const create =  (req, res) => {
+const create =  (req, res, next) => {
     let message = new Message();
     message.text = req.body.text;
     message.user = req.body.user;
@@ -46,7 +38,7 @@ const create =  (req, res) => {
         console.log(err);
         res.json({ 
             "status": "error",
-            "message": "Could not save this shoe"
+            "message": "Could not save this message"
         });
     });
 }
