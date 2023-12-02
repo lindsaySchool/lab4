@@ -1,5 +1,5 @@
 //import the model /model/messages.js
-const Message = require('../../../models/messages');
+const Message = require('../../../models/Messages');
 
 //functie
 const getAll = (req, res) => {
