@@ -15,7 +15,7 @@ router.get("/:id", messagesController.getById);
 router.post("/", messagesController.create);
 
 // PUT /api/v1/messages/:id
-//router.put("/:id", messagesController.update);
+router.put("/:id", messagesController.update);
 
 // DELETE /api/v1/messages/:id
 //router.delete("/:id", messagesController.delete);

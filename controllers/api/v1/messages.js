@@ -81,8 +81,30 @@ const create =  (req, res, next) => {
         });
     });
 }
+//PUT /api/v1/messages/:id
+const update = (req, res) => {
+    let id = req.params.id;
+    let text = req.body.text;
+    Message.findById(id)
+    .then(doc => {
+        doc.text = text;
+        return doc.save();
+    })
+    .then(doc => {
+        res.json({ 
+            "status": "UPDATING message with id " + id,
+            "data": {
+                "message": doc.text
+            } 
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
 
 //export the controller
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.create = create;
+module.exports.update = update;
