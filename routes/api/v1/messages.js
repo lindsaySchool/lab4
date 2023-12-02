@@ -18,7 +18,7 @@ router.post("/", messagesController.create);
 router.put("/:id", messagesController.update);
 
 // DELETE /api/v1/messages/:id
-//router.delete("/:id", messagesController.delete);
+router.delete("/:id", messagesController.remove);
 
 //export the router
 module.exports = router;

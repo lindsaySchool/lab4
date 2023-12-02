@@ -102,9 +102,23 @@ const update = (req, res) => {
         console.log(err);
     });
 }
+//DELETE /api/v1/messages/:id
+const remove = (req, res) => {
+    let id = req.params.id;
+    Message.findByIdAndDelete(id)
+    .then(doc => {
+        res.json({ 
+            "status": "REMOVING message with id " + id,
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+}
 
 //export the controller
 module.exports.getAll = getAll;
 module.exports.getById = getById;
 module.exports.create = create;
 module.exports.update = update;
+module.exports.remove = remove;
