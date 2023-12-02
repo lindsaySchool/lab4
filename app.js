@@ -9,7 +9,7 @@ const usersRouter = require('./routes/users');
 //require the api messages router
 const apiMessagesRouter = require('./routes/api/v1/messages');
 //require config
-const config = require('./config');
+const config = require('config');
 
 //require mongoose
 const mongoose = require('mongoose');
