@@ -13,7 +13,7 @@ const getAll = (req, res) => {
             res.json({ 
                 "status": `GETTING messages for username ${user}`,
                 "data": {
-                    "message": docs.map(doc => doc.text)
+                    "message": docs.map(doc => ({ text: doc.text, user: doc.user }))
                 } 
             });
         })
@@ -28,7 +28,7 @@ const getAll = (req, res) => {
             res.json({ 
                 "status": "GETTING messages",
                 "data": {
-                    "message": docs.map(doc => doc.text)
+                    "message": docs.map(doc => ({ text: doc.text, user: doc.user }))
                 } 
             });
         })
