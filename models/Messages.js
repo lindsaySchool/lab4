@@ -7,7 +7,10 @@ const MessageSchema = new Schema({
         type: String,
         required: true
     },
-    user: String,
+    user: {
+        type: String,
+        required: true
+    },
     added: Date
 });
 const Message = mongoose.model('Message', MessageSchema);
