@@ -85,6 +85,7 @@ const create =  (req, res, next) => {
 const update = (req, res) => {
     let id = req.params.id;
     let text = req.body.text;
+    console.log(text);
     Message.findById(id)
     .then(doc => {
         doc.text = text;
@@ -100,6 +101,11 @@ const update = (req, res) => {
     })
     .catch(err => {
         console.log(err);
+        res.json({
+            "status": "error",
+            "message": "Could not update this message"
+        
+        });
     });
 }
 //DELETE /api/v1/messages/:id
