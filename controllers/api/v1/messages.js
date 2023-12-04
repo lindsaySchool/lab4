@@ -3,7 +3,7 @@ const Message = require('../../../models/Messages');
 
 //functie
 const getAll = (req, res) => {
-    let user = req.body.user;
+    let user = req.query.user;
 
     if(user){
         //GET /api/v1/messages?user=naam
